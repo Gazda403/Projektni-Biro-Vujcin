@@ -240,7 +240,11 @@
     /* RESPONSIVE */
     @media(max-width:860px){
       .ii,.ai,.cin{grid-template-columns:1fr;gap:3rem}
-      .iba{display:none}  /* hide decorative blob area on mobile — fixes overlap */
+      .iba{height:240px}
+      .bc:nth-child(1){width:155px;height:155px;top:10px;left:10px}
+      .bc:nth-child(2){width:110px;height:110px;bottom:20px;right:10px}
+      .bc:nth-child(3){width:88px;height:88px;top:36px;right:36px}
+      .bn{font-size:1.8rem}
       .pl{flex-direction:column;gap:2rem}
       .pl::before{display:none}
       .ri{flex-direction:column;text-align:center}
