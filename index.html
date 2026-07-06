@@ -7,7 +7,9 @@
   <meta name="description" content="Projektni biro VUJCIN nudi kompletno arhitektonsko projektovanje porodičnih kuca, luksuznih vila i stambenih objekata u Novom Sadu i Srbiji." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="image" href="images/Modern_house_on_green_hillside_202607041859.jpeg" fetchpriority="high" />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -238,7 +240,7 @@
     /* RESPONSIVE */
     @media(max-width:860px){
       .ii,.ai,.cin{grid-template-columns:1fr;gap:3rem}
-      .iba{height:280px}
+      .iba{display:none}  /* hide decorative blob area on mobile — fixes overlap */
       .pl{flex-direction:column;gap:2rem}
       .pl::before{display:none}
       .ri{flex-direction:column;text-align:center}
@@ -247,11 +249,20 @@
       .hc{padding:5rem 1.5rem 4rem}
       nav{padding:1rem 1.5rem}
       .ct{padding:0 1.5rem}
+      /* Nav logo: prevent wrapping into button */
+      .nl{font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55vw}
+      .nc{font-size:.78rem;padding:.45rem 1rem;white-space:nowrap}
+      /* Reduce blob layer animations on mobile for battery/perf */
+      .blob-a,.blob-b,.blob-c{animation:none !important}
+      /* Off-screen content-visibility boosts */
+      .adv,.proc,.testi,.cont{content-visibility:auto;contain-intrinsic-size:0 600px}
     }
     @media(max-width:560px){
       .sg{grid-template-columns:1fr}
       .ha{flex-direction:column}
       .hc h1{font-size:clamp(2.4rem,10vw,4rem)}
+      nav{gap:.5rem}
+      .nc{padding:.4rem .85rem;font-size:.76rem}
     }
   </style>
 </head>
