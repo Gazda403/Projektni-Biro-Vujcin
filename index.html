@@ -239,12 +239,11 @@
 
     /* RESPONSIVE */
     @media(max-width:860px){
-      .ii,.ai,.cin{grid-template-columns:1fr;gap:3rem}
-      .iba{height:240px}
-      .bc:nth-child(1){width:155px;height:155px;top:10px;left:10px}
-      .bc:nth-child(2){width:110px;height:110px;bottom:20px;right:10px}
-      .bc:nth-child(3){width:88px;height:88px;top:36px;right:36px}
-      .bn{font-size:1.8rem}
+      .ii,.ai,.cin{grid-template-columns:1fr;gap:2rem}
+      /* Force-hide decorative blob area — purely ornamental, aria-hidden */
+      .iba,.bc{display:none !important}
+      /* Show a compact mobile stats strip instead */
+      .mob-stats{display:flex !important}
       .pl{flex-direction:column;gap:2rem}
       .pl::before{display:none}
       .ri{flex-direction:column;text-align:center}
@@ -258,9 +257,30 @@
       .nc{font-size:.78rem;padding:.45rem 1rem;white-space:nowrap}
       /* Reduce blob layer animations on mobile for battery/perf */
       .blob-a,.blob-b,.blob-c{animation:none !important}
-      /* Off-screen content-visibility boosts */
+      /* Off-screen sections */
       .adv,.proc,.testi,.cont{content-visibility:auto;contain-intrinsic-size:0 600px}
+      .intro{padding:3.5rem 0 0}
     }
+    /* Mobile stats strip (hidden on desktop) */
+    .mob-stats{
+      display:none;
+      gap:0;
+      margin-top:2rem;
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid var(--stone-dark);
+      background:var(--white);
+    }
+    .mob-stat{
+      flex:1;
+      text-align:center;
+      padding:1.2rem .5rem;
+      border-right:1px solid var(--stone-dark);
+    }
+    .mob-stat:last-child{border-right:none}
+    .mob-stat .msn{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--bark);display:block;line-height:1}
+    .mob-stat .mss{font-family:var(--serif);font-size:.9rem;color:var(--amber)}
+    .mob-stat .msl{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);margin-top:.3rem}
     @media(max-width:560px){
       .sg{grid-template-columns:1fr}
       .ha{flex-direction:column}
@@ -318,6 +338,21 @@
           <p><strong>Nataša Vujčin</strong> osnovala je Projektni biro VUJCIN sa jasnom vizijom: da svaki dom koji projektujemo bude odraz jedinstvenosti svojih vlasnika — ne samo funkcionalan objekat, već prostor koji oblikuje svakodnevni život.</p>
           <p>Naš pristup kombinuje preciznu arhitektonsku metodologiju sa iskrenom pažnjom prema Vašim potrebama. Svaki projekat pratimo od prve ideje do trenutka kada okrenete ključ u bravi.</p>
           <p>Delujemo iz <strong>Novog Sada</strong>, ali zahvaljujući potpuno digitalnom radnom toku uspešno sarađujemo s klijentima širom Srbije i inostranstva.</p>
+          <!-- Mobile-only stats strip (desktop sees the blob area instead) -->
+          <div class="mob-stats" aria-hidden="true">
+            <div class="mob-stat">
+              <span class="msn">100<span class="mss">%</span></span>
+              <div class="msl">Remote</div>
+            </div>
+            <div class="mob-stat">
+              <span class="msn">360<span class="mss">°</span></span>
+              <div class="msl">Podrška</div>
+            </div>
+            <div class="mob-stat">
+              <span class="msn">0<span class="mss">km</span></span>
+              <div class="msl">Granica</div>
+            </div>
+          </div>
         </div>
         <div class="iba rv d2" aria-hidden="true">
           <div class="bc"><span class="bn">100%</span><span class="bl">Remote workflow</span></div>
