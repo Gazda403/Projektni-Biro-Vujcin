@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usluge | Projektovanje Kuća, Dokumentacija, Nadzor — Projektni Biro VUJČIN Novi Sad</title>
+  <meta name="description" content="Kompletne arhitektonske usluge: projektovanje porodičnih kuća i vila u Novom Sadu, izrada projektne dokumentacije (IDR, PGD, PZI), ishodovanje građevinske dozvole i stručni nadzor gradnje." />
+  <link rel="canonical" href="https://projektni-biro-vujcin.vercel.app/usluge.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" /></noscript>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --sage:#6B8F71;--sage-light:#A8C5AC;--sage-pale:#E8F0E9;
+      --burgundy:#9A1D1D;--burgundy-light:#EAA0A0;
+      --stone:#F5F0E8;--stone-dark:#E0D8C8;--cream:#FAF8F3;
+      --bark:#4A3728;--bark-light:#7A6050;
+      --text:#2C2418;--text-mid:#6A5D50;--text-soft:#9A8E82;--white:#FFFFFF;
+      --serif:'Cormorant Garamond',Georgia,serif;
+      --sans:'DM Sans',system-ui,sans-serif;
+      --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.6}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .5s,box-shadow .5s;background:rgba(250,248,243,.97);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(74,55,40,.08)}
+    .nl{font-family:var(--serif);font-size:1.25rem;font-weight:500;letter-spacing:.08em;color:var(--bark);text-decoration:none}
+    .nc{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.4rem;border-radius:50px;background:var(--burgundy);color:var(--white);font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:background .3s,transform .3s var(--ease)}
+    .nc:hover{transform:scale(1.04)}
+    .nc.ghost{background:transparent;border:1.5px solid var(--stone-dark);color:var(--bark)}
+    .nc.ghost:hover{background:var(--stone)}
+
+    /* PAGE HERO */
+    .page-hero{padding:9rem 0 5rem;background:var(--bark);position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:rgba(107,143,113,.08);pointer-events:none}
+    .ph-eyebrow{font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--burgundy-light);margin-bottom:1rem;display:block}
+    .ph-title{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:1.5rem}
+    .ph-title em{font-style:italic;color:var(--sage-light)}
+    .ph-subtitle{font-size:1.1rem;color:rgba(255,255,255,.75);max-width:640px;line-height:1.8}
+
+    /* SHARED */
+    .ct{max-width:1160px;margin:0 auto;padding:0 2.5rem}
+    .sl2{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);margin-bottom:.8rem}
+    .st{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);font-weight:300;line-height:1.15;color:var(--bark)}
+    .st em{font-style:italic;color:var(--sage)}
+
+    /* SERVICE SECTIONS */
+    .svc-section{padding:7rem 0;border-bottom:1px solid var(--stone-dark)}
+    .svc-section:last-of-type{border-bottom:none}
+    .svc-section:nth-child(even){background:var(--stone)}
+    .svc-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .svc-icon{width:72px;height:72px;border-radius:20px;background:var(--sage-pale);color:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:2rem}
+    .svc-title{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--bark);margin-bottom:1rem;line-height:1.1}
+    .svc-body{font-size:1rem;line-height:1.85;color:var(--text-mid);margin-bottom:1.5rem}
+    .svc-checklist{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
+    .svc-checklist li{display:flex;align-items:flex-start;gap:.8rem;font-size:.92rem;color:var(--text-mid);line-height:1.5}
+    .svc-checklist li::before{content:'✓';font-weight:600;color:var(--sage);flex-shrink:0;margin-top:.05rem}
+    .svc-cta{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:50px;background:var(--burgundy);color:var(--white);font-size:.9rem;font-weight:500;text-decoration:none;transition:background .3s,transform .3s var(--ease),box-shadow .3s;box-shadow:0 4px 20px rgba(154,29,29,.35)}
+    .svc-cta:hover{background:var(--bark);transform:translateY(-2px)}
+
+    /* PHASE BLOCKS */
+    .phase-grid{display:flex;flex-direction:column;gap:1rem}
+    .phase-item{background:var(--white);border:1.5px solid var(--stone-dark);border-radius:20px;padding:1.5rem 1.8rem;display:flex;gap:1.2rem;align-items:flex-start;transition:border-color .3s,box-shadow .3s}
+    .phase-item:hover{border-color:var(--sage-light);box-shadow:0 8px 24px rgba(107,143,113,.1)}
+    .phase-tag{font-size:.65rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;background:var(--sage-pale);color:var(--sage);padding:.3rem .7rem;border-radius:50px;white-space:nowrap;flex-shrink:0;margin-top:.15rem}
+    .phase-name{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--bark);margin-bottom:.3rem}
+    .phase-desc{font-size:.85rem;color:var(--text-soft);line-height:1.6}
+
+    /* CTA BAND */
+    .cta-band{background:var(--sage);padding:5rem 0}
+    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+    .cta-text h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);font-weight:300;color:var(--white);margin-bottom:.6rem}
+    .cta-text p{font-size:1rem;color:rgba(255,255,255,.8)}
+    .cta-btn-wrap{display:flex;gap:1rem;flex-wrap:wrap}
+    .cta-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2.4rem;border-radius:50px;background:var(--white);color:var(--bark);font-size:.95rem;font-weight:600;text-decoration:none;transition:background .3s,transform .3s var(--ease)}
+    .cta-btn:hover{background:var(--bark);color:var(--white);transform:translateY(-2px)}
+    .cta-btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:var(--white)}
+    .cta-btn.ghost:hover{background:rgba(255,255,255,.1)}
+
+    /* FOOTER */
+    footer{background:var(--bark);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .fb{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--stone);letter-spacing:.06em}
+    .fl{font-size:.76rem;color:rgba(245,240,232,.45);line-height:1.6}
+
+    @media(max-width:860px){
+      .svc-inner{grid-template-columns:1fr;gap:2.5rem}
+      .cta-inner{flex-direction:column}
+      nav{padding:1rem 1.5rem}
+      .ct{padding:0 1.5rem}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nl">VUJČIN | Projektni Biro</a>
+    <div style="display:flex;gap:.7rem;align-items:center">
+      <a href="projekti.html" class="nc ghost">Projekti</a>
+      <a href="index.html#kontakt" class="nc">Zakažite konsultacije &rarr;</a>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="ct">
+      <span class="ph-eyebrow">Naše usluge &middot; Novi Sad &middot; Srbija</span>
+      <h1 class="ph-title">Arhitektonske usluge<br/><em>od ideje do useljenja.</em></h1>
+      <p class="ph-subtitle">Pružamo kompletan servis arhitektonskog projektovanja — od prvog koncepta, projektne dokumentacije i ishodovanja dozvola, do stručnog nadzora gradnje. Jedan tim, jedna odgovornost.</p>
+    </div>
+  </section>
+
+  <!-- USLUGA 1: Projektovanje kuća -->
+  <section class="svc-section" id="kuca">
+    <div class="ct">
+      <div class="svc-inner">
+        <div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></div>
+          <p class="sl2">Usluga 01</p>
+          <h2 class="svc-title">Projektovanje kuća (zidanih i montažnih) i vila</h2>
+          <p class="svc-body">Projektujemo tradicionalne zidane objekte, savremene montažne kuće, luksuzne vile i stambene objekte u Novom Sadu i širom Srbije. Svaki projekat kreće od detaljnog razgovora o Vašim potrebama, lokaciji, veličini, stilu i budžetu — i završava preciznim arhitektonskim rešenjem koje je funkcionalno, estetski upečatljivo i energetski efikasno.</p>
+          <ul class="svc-checklist">
+            <li>Konzultacija i analiza lokacije (parcele)</li>
+            <li>Konceptualno i idejno arhitektonsko rešenje</li>
+            <li>3D vizualizacije eksterijera i enterijera</li>
+            <li>Arhitektonski projekat za sve veličine i stilove</li>
+            <li>Prilagođavanje varijanti prema Vašim komentarima</li>
+            <li>Koordinacija sa svim ostalim projektantima</li>
+          </ul>
+          <a href="index.html#kontakt" class="svc-cta">Zakažite besplatnu konsultaciju &rarr;</a>
+        </div>
+        <div class="phase-grid">
+          <div class="phase-item">
+            <span class="phase-tag">Korak 1</span>
+            <div>
+              <div class="phase-name">Analiza i program</div>
+              <p class="phase-desc">Razgovaramo o Vašim željama, analiziramo parcelu, urbanistička ograničenja i definiš-emo prostorni program objekta.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <span class="phase-tag">Korak 2</span>
+            <div>
+              <div class="phase-name">Idejno rešenje (IDR)</div>
+              <p class="phase-desc">Izrađujemo skice osnova, izgleda i preseka. Proveravamo usklađenost sa lokacijskim uslovima i usaglašavamo sa klijentom.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <span class="phase-tag">Korak 3</span>
+            <div>
+              <div class="phase-name">3D Vizualizacija</div>
+              <p class="phase-desc">Fotorealistični prikazi eksterijera i enterijera koji Vam pomažu da jasno sagledavate konačni izgled pre nego što gradnja počne.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <span class="phase-tag">Korak 4</span>
+            <div>
+              <div class="phase-name">Finalizacija projekta</div>
+              <p class="phase-desc">Kompletiramo arhitektonski projekat sa svim detaljima, materijalima i tehničkim specifikacijama neophodnim za dalju izradu dokumentacije.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USLUGA 2: Projektna dokumentacija -->
+  <section class="svc-section" id="dokumentacija">
+    <div class="ct">
+      <div class="svc-inner">
+        <div>
+          <div class="svc-icon" style="background:rgba(154,29,29,.1);color:var(--burgundy)"><svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
+          <p class="sl2">Usluga 02</p>
+          <h2 class="svc-title">Projektna dokumentacija i građevinska dozvola</h2>
+          <p class="svc-body">Izrada kompletne tehničke dokumentacije prema Zakonu o planiranju i izgradnji Republike Srbije — od Idejnog rešenja (IDR) za dobijanje lokacijskih uslova, do Projekta za građevinsku dozvolu (PGD) i Projekta za izvođenje (PZI). Pratimo sve faze procesa do ishodovanja upotrebne dozvole.</p>
+          <ul class="svc-checklist">
+            <li>Idejno rešenje (IDR) — osnov za lokacijske uslove</li>
+            <li>Projekat za građevinsku dozvolu (PGD)</li>
+            <li>Projekat za izvođenje (PZI)</li>
+            <li>Podnošenje zahteva nadležnim organima</li>
+            <li>Praćenje postupka do dobijanja dozvole</li>
+            <li>Projekat izvedenog stanja i upotrebna dozvola</li>
+          </ul>
+          <a href="index.html#kontakt" class="svc-cta">Pitajte o dokumentaciji &rarr;</a>
+        </div>
+        <div class="phase-grid">
+          <div class="phase-item">
+            <span class="phase-tag" style="background:rgba(154,29,29,.1);color:var(--burgundy)">IDR</span>
+            <div>
+              <div class="phase-name">Idejno rešenje</div>
+              <p class="phase-desc">Prva faza — podnosi se uz zahtev za lokacijske uslove. Sadrži osnove, izglede, preseke i opis objekta.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <span class="phase-tag" style="background:rgba(154,29,29,.1);color:var(--burgundy)">PGD</span>
+            <div>
+              <div class="phase-name">Projekat za građevinsku dozvolu</div>
+              <p class="phase-desc">Detaljna tehnička dokumentacija za dobijanje građevinske dozvole. Uključuje arhitektonski, konstruktivni i instalaterske projekte.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <span class="phase-tag" style="background:rgba(154,29,29,.1);color:var(--burgundy)">PZI</span>
+            <div>
+              <div class="phase-name">Projekat za izvođenje</div>
+              <p class="phase-desc">Najdetaljnija faza — sve specifikacije, detalji i tehničke napomene koje izvođač radova koristi na terenu.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <span class="phase-tag" style="background:rgba(154,29,29,.1);color:var(--burgundy)">PIS</span>
+            <div>
+              <div class="phase-name">Upotrebna dozvola</div>
+              <p class="phase-desc">Projekat izvedenog stanja i kompletan postupak za dobijanje upotrebne dozvole i tehničkog prijema objekta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USLUGA 3: Instalacije -->
+  <section class="svc-section" id="instalacije">
+    <div class="ct">
+      <div class="svc-inner">
+        <div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+          <p class="sl2">Usluga 03</p>
+          <h2 class="svc-title">Infrastruktura i tehničke instalacije</h2>
+          <p class="svc-body">Kompletno projektovanje tehničkih sistema objekta — električne instalacije, vodovodna i kanalizaciona mreža, centralno grejanje i ventilacija. Svaki sistem je projektovan koordinisano sa arhitektonskim projektom, bez naknadnih improvizacija na gradilištu.</p>
+          <ul class="svc-checklist">
+            <li>Projekat elektroenergetskih instalacija (EL)</li>
+            <li>Projekat vodovodnih i kanalizacionih instalacija (VK)</li>
+            <li>Projekat centralnog grejanja i hlađenja (TermoTehnika)</li>
+            <li>Projekat ventilacije i klimatizacije</li>
+            <li>Projekat slabe struje i inteligentnih sistema</li>
+            <li>Koordinacija svih sistema u BIM okruženju</li>
+          </ul>
+          <a href="index.html#kontakt" class="svc-cta">Pitajte o instalacijama &rarr;</a>
+        </div>
+        <div style="background:var(--white);border-radius:24px;padding:2.5rem;border:1.5px solid var(--stone-dark)">
+          <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--bark);margin-bottom:1.5rem">Zašto je važno da instalacije projektuje isti tim?</h3>
+          <p style="font-size:.92rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.2rem">Kada instalacije projektuje odvojeni tim, dolazi do neusklađenosti koje se otkrivaju tek na gradilištu — skupih problema sa prostorom za cevi, kablove i kanale.</p>
+          <p style="font-size:.92rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.2rem">Naš tim koordiniše arhitekturu i sve tehničke sisteme simultano, što znači:</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:.6rem;font-size:.88rem;color:var(--text-mid)">
+            <li style="display:flex;gap:.8rem"><span style="color:var(--sage);font-weight:600">✓</span> Nema naknadnih probijanja zidova</li>
+            <li style="display:flex;gap:.8rem"><span style="color:var(--sage);font-weight:600">✓</span> Precizna predračunska analiza troškova</li>
+            <li style="display:flex;gap:.8rem"><span style="color:var(--sage);font-weight:600">✓</span> Energetski efikasni sistemi od projekta</li>
+            <li style="display:flex;gap:.8rem"><span style="color:var(--sage);font-weight:600">✓</span> Jedan tim odgovoran za sve</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USLUGA 4: Nadzor -->
+  <section class="svc-section" id="nadzor">
+    <div class="ct">
+      <div class="svc-inner">
+        <div>
+          <div class="svc-icon" style="background:rgba(154,29,29,.1);color:var(--burgundy)"><svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+          <p class="sl2">Usluga 04</p>
+          <h2 class="svc-title">Stručni nadzor gradnje</h2>
+          <p class="svc-body">Stručni nadzorni organ (vršilac nadzora) je zakonska obaveza za sve objekte sa građevinskom dozvolom. Mi ne samo što ispunjavamo tu obavezu — aktivno štitimo Vaše interese na gradilištu i osiguravamo da svaki detalj izgradnje odgovara projektnoj dokumentaciji i tehničkim standardima.</p>
+          <ul class="svc-checklist">
+            <li>Redovni pregledi na gradilištu u svim fazama</li>
+            <li>Kontrola kvaliteta materijala i izvedenih radova</li>
+            <li>Proveravanje usklađenosti sa projektnom dokumentacijom</li>
+            <li>Knjiga nadzora i dokumentacija svake posete</li>
+            <li>Promptna reakcija na tekuće probleme</li>
+            <li>Koordinacija tehničkog pregleda i upotrebne dozvole</li>
+          </ul>
+          <a href="index.html#kontakt" class="svc-cta">Pitajte o nadzoru &rarr;</a>
+        </div>
+        <div style="background:var(--white);border-radius:24px;padding:2.5rem;border:1.5px solid var(--stone-dark)">
+          <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--bark);margin-bottom:1rem">Imate projekat, ali trebate nadzor?</h3>
+          <p style="font-size:.92rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.5rem">Možemo preuzeti stručni nadzor čak i ako projektnu dokumentaciju nije radio naš biro. Kontaktirajte nas sa tehničkom dokumentacijom i dogovorimo uslove.</p>
+          <a href="index.html#kontakt" style="display:inline-flex;align-items:center;gap:.4rem;color:var(--sage);font-weight:500;font-size:.9rem;text-decoration:none">Pišite nam o nadzoru &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="ct">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h2>Pokrenite Vaš projekat danas.</h2>
+          <p>Prva konsultacija je uvek besplatna. Odgovaramo u roku od jednog radnog dana.</p>
+        </div>
+        <div class="cta-btn-wrap">
+          <a href="index.html#kontakt" class="cta-btn">Zakažite konsultaciju &rarr;</a>
+          <a href="dijaspora.html" class="cta-btn ghost">Radite iz inostranstva?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="fb">VUJČIN | Projektni Biro</div>
+    <nav style="display:flex;gap:1.5rem;flex-wrap:wrap" aria-label="Footer navigacija">
+      <a href="index.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Početna</a>
+      <a href="o-nama.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">O nama</a>
+      <a href="projektovanje-kuca-novi-sad.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Projektovanje kuća NS</a>
+      <a href="usluge.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Usluge</a>
+      <a href="projekti.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Projekti</a>
+      <a href="dijaspora.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Dijaspora</a>
+      <a href="blog.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Blog</a>
+    </nav>
+    <div class="fl">&copy; 2026 Nataša Vujčin &mdash; Projektni biro VUJČIN &middot; Novi Sad &middot; Sva prava zadržana</div>
+  </footer>
+
+</body>
+</html>
