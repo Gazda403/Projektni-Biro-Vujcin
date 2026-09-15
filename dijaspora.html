@@ -45,11 +45,12 @@
     html{scroll-behavior:smooth}
     body{font-family:var(--sans);background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.6}
 
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .5s,box-shadow .5s;background:rgba(27,74,35,.97);backdrop-filter:blur(16px)}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .5s,box-shadow .5s;background:rgba(19,48,25,.97);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(0,0,0,.15)}
     .nl{font-family:var(--serif);font-size:1.25rem;font-weight:500;letter-spacing:.08em;color:var(--stone);text-decoration:none}
-    .nc{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.4rem;border-radius:50px;background:var(--sage);color:var(--white);font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:background .3s,transform .3s var(--ease)}
-    .nc:hover{transform:scale(1.04);background:var(--sage-light)}
-    .nc.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.3);color:var(--stone)}
+    .nc{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.4rem;border-radius:50px;background:var(--sage);color:var(--white);font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:background .3s,border-color .3s,transform .3s var(--ease)}
+    .nc:hover{transform:scale(1.04);background:var(--sage-light);color:var(--bark)}
+    .nc.ghost{background:transparent !important;border:1.5px solid rgba(255,255,255,.3) !important;color:var(--stone) !important}
+    .nc.ghost:hover{background:rgba(255,255,255,.1) !important;border-color:rgba(255,255,255,.7) !important}
 
     .ct{max-width:1160px;margin:0 auto;padding:0 2.5rem}
     .sl2{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);margin-bottom:.8rem}
@@ -57,7 +58,7 @@
     .st em{font-style:italic;color:var(--sage)}
 
     /* HERO */
-    .hero{background:linear-gradient(135deg,var(--bark) 0%,#2a1f14 100%);padding:9rem 0 6rem;position:relative;overflow:hidden}
+    .hero{background:linear-gradient(135deg,#133019 0%,#091b0e 100%);padding:9rem 0 6rem;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('images/projektovanje-kuca-novi-sad-vujcin.jpeg') center/cover;opacity:.12;pointer-events:none}
     .hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
     .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(107,143,113,.2);border:1px solid rgba(107,143,113,.35);border-radius:50px;padding:.4rem 1rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-light);margin-bottom:1.5rem}
@@ -86,11 +87,11 @@
     .step-desc{font-size:.92rem;color:var(--text-mid);line-height:1.75}
 
     /* WHY SECTION */
-    .why-section{background:var(--bark);padding:7rem 0}
+    .why-section{background:linear-gradient(135deg,#133019 0%,#0c2111 100%);padding:7rem 0}
     .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem}
     .why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:2rem;transition:background .3s,border-color .3s,transform .4s var(--ease)}
     .why-card:hover{background:rgba(255,255,255,.09);border-color:rgba(168,197,172,.3);transform:translateY(-4px)}
-    .why-icon{font-size:2rem;margin-bottom:1rem}
+    .why-icon{color:var(--sage-light);margin-bottom:1rem;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(107,143,113,.15)}
     .why-title{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--stone);margin-bottom:.6rem}
     .why-desc{font-size:.87rem;color:rgba(245,240,232,.65);line-height:1.7}
 
@@ -112,14 +113,14 @@
     .market-name{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--bark)}
     .market-tag{font-size:.75rem;color:var(--text-soft)}
 
-    footer{background:var(--bark);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    footer{background:#0a170e;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
     .fb{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--stone);letter-spacing:.06em}
     .fl{font-size:.76rem;color:rgba(245,240,232,.45);line-height:1.6}
 
     @media(max-width:860px){
       .hero-inner,.form-inner{grid-template-columns:1fr;gap:2.5rem}
       .why-grid{grid-template-columns:1fr}
-      nav{padding:1rem 1.5rem}
+      #nav{padding:1rem 1.5rem}
       .ct{padding:0 1.5rem}
       .hero{padding:7rem 0 4rem}
     }
@@ -127,7 +128,7 @@
 </head>
 <body>
 
-  <nav>
+  <nav id="nav">
     <a href="index.html" class="nl">VUJČIN | Projektni Biro</a>
     <div style="display:flex;gap:.7rem;align-items:center">
       <a href="o-nama.html" class="nc ghost">O nama</a>
@@ -239,32 +240,32 @@
       <h2 class="st" style="color:var(--stone)">Razlika koja<br/><em>menja sve.</em></h2>
       <div class="why-grid">
         <div class="why-card">
-          <div class="why-icon" style="font-size:1.3rem;font-family:var(--serif);font-weight:500;color:var(--sage-light)">TEL</div>
+          <div class="why-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
           <h3 class="why-title">Uvek dostupni</h3>
           <p class="why-desc">Odgovaramo u roku od 24h. Online ili telefonom &mdash; nijedan Va&scaron; upit ne ostaje bez odgovora.</p>
         </div>
         <div class="why-card">
-          <div class="why-icon" style="font-size:1.3rem;font-family:var(--serif);font-weight:500;color:var(--sage-light)">POT</div>
+          <div class="why-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
           <h3 class="why-title">Dokumenti punomoćjem</h3>
           <p class="why-desc">Punomoćjem nam omogućavate da Vas zastupamo pred svim organima u Srbiji. Ne morate da dolazite ni na jedno ro&ccaron;i&scaron;te.</p>
         </div>
         <div class="why-card">
-          <div class="why-icon" style="font-size:1.3rem;font-family:var(--serif);font-weight:500;color:var(--sage-light)">IZV</div>
+          <div class="why-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
           <h3 class="why-title">Transparentni izve&scaron;taji</h3>
           <p class="why-desc">Svake nedelje dobijate foto i video izve&scaron;taj o napretku. Uvek znate šta se de&scaron;ava na Va&scaron;oj parceli.</p>
         </div>
         <div class="why-card">
-          <div class="why-icon" style="font-size:1.3rem;font-family:var(--serif);font-weight:500;color:var(--sage-light)">CEN</div>
+          <div class="why-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
           <h3 class="why-title">Jasne cene</h3>
           <p class="why-desc">Pre potpisivanja ugovora dobijate preciznu ponudu sa svim fazama. Bez skrivenih tro&scaron;kova.</p>
         </div>
         <div class="why-card">
-          <div class="why-icon" style="font-size:1.3rem;font-family:var(--serif);font-weight:500;color:var(--sage-light)">ZAK</div>
+          <div class="why-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
           <h3 class="why-title">Srpsko zakonodavstvo</h3>
           <p class="why-desc">Kompletno poznavanje Zakona o planiranju i izgradnji, lokalnih urbanisti&ccaron;kih planova i procedure u Novom Sadu i &scaron;irom Vojvodine.</p>
         </div>
         <div class="why-card">
-          <div class="why-icon" style="font-size:1.3rem;font-family:var(--serif);font-weight:500;color:var(--sage-light)">DIG</div>
+          <div class="why-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
           <h3 class="why-title">Digitalni radni tok</h3>
           <p class="why-desc">Cela procedura je uspostavljena za online klijente. Nismo improvizovali &mdash; ovo je na&scaron; standardni na&ccaron;in rada.</p>
         </div>
@@ -288,7 +289,7 @@
         </div>
         <div style="background:var(--sage);border-radius:28px;padding:3rem;color:var(--white)">
           <p style="font-size:.75rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:1.2rem">Iskustvo klijenta</p>
-          <blockquote style="font-family:var(--serif);font-size:1.5rem;font-weight:300;line-height:1.4;font-style:italic;color:var(--white);margin-bottom:1.5rem">"Bili smo u Frankfurtu tokom celog procesa. Ceo projekat, dozvola &mdash; sve je ura&dj;eno bez ijednog na&scaron;eg putovanja. Ne bi smo mogli verovati da je mogu&ccaron;e dok nismo pro&scaron;li kroz to."</blockquote>
+          <blockquote style="font-family:var(--serif);font-size:1.5rem;font-weight:300;line-height:1.4;font-style:italic;color:var(--white);margin-bottom:1.5rem">&ldquo;Bili smo u Frankfurtu tokom celog procesa. Ceo projekat, dozvola &mdash; sve je ura&dj;eno bez ijednog na&scaron;eg putovanja. Ne bi smo mogli verovati da je mogu&ccaron;e dok nismo pro&scaron;li kroz to.&rdquo;</blockquote>
           <div style="font-family:var(--serif);color:rgba(255,255,255,.8);font-size:1rem">&mdash; Porodica Marković, Frankfurt</div>
         </div>
       </div>
@@ -304,9 +305,9 @@
           <h2 class="st" style="margin-bottom:1rem">Krenite danas &mdash;<br/><em>besplatno.</em></h2>
           <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:2rem">Popunite formular i odmah zapo&ccaron;nite Va&scaron; projekat. U roku od jednog radnog dana kontaktiramo Vas radi dogovora o terminu online konzultacije. Prva konsultacija je uvek besplatna.</p>
           <div style="display:flex;flex-direction:column;gap:.7rem;font-size:.88rem;color:var(--text-mid)">
-            <div style="display:flex;gap:.7rem;align-items:center"><span style="color:var(--sage);font-weight:600;font-size:1rem">✓</span>Odgovor u roku od 24h radnog dana</div>
-            <div style="display:flex;gap:.7rem;align-items:center"><span style="color:var(--sage);font-weight:600;font-size:1rem">✓</span>Besplatna prva konsultacija</div>
-            <div style="display:flex;gap:.7rem;align-items:center"><span style="color:var(--sage);font-weight:600;font-size:1rem">✓</span>Bez obaveza i bez potpisa</div>
+            <div style="display:flex;gap:.7rem;align-items:center"><svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"></polyline></svg>Odgovor u roku od 24h radnog dana</div>
+            <div style="display:flex;gap:.7rem;align-items:center"><svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"></polyline></svg>Besplatna prva konsultacija</div>
+            <div style="display:flex;gap:.7rem;align-items:center"><svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"></polyline></svg>Bez obaveza i bez potpisa</div>
           </div>
         </div>
         <form id="dijaspora-form" novalidate>
@@ -340,7 +341,7 @@
 
   <footer>
     <div class="fb">VUJČIN | Projektni Biro</div>
-    <nav style="display:flex;gap:1.5rem;flex-wrap:wrap" aria-label="Footer navigacija">
+    <div class="footer-nav" style="display:flex;gap:1.5rem;flex-wrap:wrap" aria-label="Footer navigacija">
       <a href="index.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Početna</a>
       <a href="o-nama.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">O nama</a>
       <a href="projektovanje-kuca-novi-sad.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Projektovanje kuća NS</a>
@@ -348,7 +349,7 @@
       <a href="projekti.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Projekti</a>
       <a href="dijaspora.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Dijaspora</a>
       <a href="blog.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Blog</a>
-    </nav>
+    </div>
     <div class="fl">&copy; 2026 Nataša Vujčin &mdash; Projektni biro VUJČIN &middot; Novi Sad &middot; Sva prava zadržana</div>
   </footer>
 
@@ -361,7 +362,7 @@
       let ok = true;
       req.forEach(f => { if(!f.value.trim()){f.style.borderColor='var(--burgundy)';ok=false;}else{f.style.borderColor='';} });
       if(!ok) return;
-      btn.textContent = 'Poruka poslata ✓'; btn.style.background = 'var(--sage)'; btn.disabled = true;
+      btn.textContent = 'Poruka poslata \u2713'; btn.style.background = 'var(--sage)'; btn.disabled = true;
       setTimeout(() => { btn.textContent = 'Pošalji upit'; btn.style.background = ''; btn.disabled = false; form.reset(); }, 4000);
     });
   </script>

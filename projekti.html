@@ -71,13 +71,17 @@
     @keyframes bf3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3%,5%) scale(1.1)}}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .5s,box-shadow .5s}
-    nav.sc{background:rgba(250,248,243,.93);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(74,55,40,.08)}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .5s,box-shadow .5s}
+    #nav.sc{background:rgba(250,248,243,.93);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(74,55,40,.08)}
     .nl{font-family:var(--serif);font-size:1.25rem;font-weight:500;letter-spacing:.08em;color:var(--white);text-decoration:none;transition:color .4s}
-    nav.sc .nl{color:var(--bark)}
-    .nc{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.4rem;border-radius:50px;background:var(--white);color:var(--bark);font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:background .3s,color .3s,transform .3s var(--ease)}
-    nav.sc .nc{background:var(--burgundy);color:var(--white)}
+    #nav.sc .nl{color:var(--bark)}
+    .nc{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.4rem;border-radius:50px;background:var(--white);color:var(--bark);font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+    #nav.sc .nc:not(.ghost){background:var(--burgundy);color:var(--white)}
     .nc:hover{transform:scale(1.04)}
+    .nc.ghost{background:transparent !important;border:1.5px solid rgba(255,255,255,.4) !important;color:var(--white) !important}
+    .nc.ghost:hover{background:rgba(255,255,255,.1) !important;border-color:rgba(255,255,255,.7) !important}
+    #nav.sc .nc.ghost{border-color:var(--stone-dark) !important;color:var(--bark) !important}
+    #nav.sc .nc.ghost:hover{background:var(--stone-pale) !important;border-color:var(--bark) !important}
 
     /* HERO */
     .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:#111}
@@ -250,7 +254,7 @@
       footer{flex-direction:column;text-align:center}
       .fr{grid-template-columns:1fr}
       .hc{padding:5rem 1.5rem 4rem}
-      nav{padding:1rem 1.5rem}
+      #nav{padding:1rem 1.5rem}
       .ct{padding:0 1.5rem}
       /* Nav logo: prevent wrapping into button */
       .nl{font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:55vw}
@@ -285,7 +289,7 @@
       .sg{grid-template-columns:1fr}
       .ha{flex-direction:column}
       .hc h1{font-size:clamp(2.4rem,10vw,4rem)}
-      nav{gap:.5rem}
+      #nav{gap:.5rem}
       .nc{padding:.4rem .85rem;font-size:.76rem}
     }
 
@@ -374,7 +378,10 @@
   <nav id="nav">
     <a href="index.html" class="nl">VUJČIN | Projektni Biro</a>
     <div style="display:flex;gap:.7rem;align-items:center">
-      <a href="usluge.html" class="nc" style="background:transparent;border:1.5px solid rgba(255,255,255,.4);color:var(--white);">Usluge</a>
+      <a href="o-nama.html" class="nc ghost" id="nav-onama">O nama</a>
+      <a href="usluge.html" class="nc ghost" id="nav-usluge">Usluge</a>
+      <a href="projekti.html" class="nc ghost" id="nav-projekti">Projekti</a>
+      <a href="dijaspora.html" class="nc ghost" id="nav-dijaspora">Dijaspora</a>
       <a href="index.html#kontakt" class="nc" id="nc">Zakažite konsultacije &rarr;</a>
     </div>
   </nav>
@@ -574,7 +581,7 @@
 
   <footer>
     <div class="fb">VUJČIN | Projektni Biro</div>
-    <nav style="display:flex;gap:1.5rem;flex-wrap:wrap" aria-label="Footer navigacija">
+    <div class="footer-nav" style="display:flex;gap:1.5rem;flex-wrap:wrap" aria-label="Footer navigacija">
       <a href="index.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Početna</a>
       <a href="o-nama.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">O nama</a>
       <a href="projektovanje-kuca-novi-sad.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Projektovanje kuća NS</a>
@@ -582,7 +589,7 @@
       <a href="projekti.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Projekti</a>
       <a href="dijaspora.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Dijaspora</a>
       <a href="blog.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Blog</a>
-    </nav>
+    </div>
     <div class="fl">&copy; 2026 Nataša Vujčin &mdash; Projektni biro VUJČIN &middot; Novi Sad &middot; Sva prava zadržana</div>
   </footer>
 

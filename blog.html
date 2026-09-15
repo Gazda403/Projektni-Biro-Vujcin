@@ -42,12 +42,12 @@
     body{font-family:var(--sans);background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.6}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .5s,box-shadow .5s;background:rgba(250,248,243,.97);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(74,55,40,.08)}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .5s,box-shadow .5s;background:rgba(250,248,243,.97);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(74,55,40,.08)}
     .nl{font-family:var(--serif);font-size:1.25rem;font-weight:500;letter-spacing:.08em;color:var(--bark);text-decoration:none}
     .nc{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.4rem;border-radius:50px;background:var(--burgundy);color:var(--white);font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:background .3s,transform .3s var(--ease)}
     .nc:hover{transform:scale(1.04)}
-    .nc.ghost{background:transparent;border:1.5px solid var(--stone-dark);color:var(--bark)}
-    .nc.ghost:hover{background:var(--stone)}
+    .nc.ghost{background:transparent !important;border:1.5px solid var(--stone-dark) !important;color:var(--bark) !important}
+    .nc.ghost:hover{background:var(--stone) !important}
 
     /* HERO */
     .hero{padding:9rem 0 4.5rem;background:var(--bark);color:var(--white);position:relative;overflow:hidden}
@@ -112,7 +112,7 @@
 
     @media(max-width:860px){
       .modal-box{padding:2rem}
-      nav{padding:1rem 1.5rem}
+      #nav{padding:1rem 1.5rem}
       .ct{padding:0 1.5rem}
       .blog-cta{padding:2rem;flex-direction:column}
     }
@@ -120,7 +120,7 @@
 </head>
 <body>
 
-  <nav>
+  <nav id="nav">
     <a href="index.html" class="nl">VUJČIN | Projektni Biro</a>
     <div style="display:flex;gap:.7rem;align-items:center">
       <a href="o-nama.html" class="nc ghost">O nama</a>
@@ -304,7 +304,7 @@
 
   <footer>
     <div class="fb">VUJČIN | Projektni Biro</div>
-    <nav style="display:flex;gap:1.5rem;flex-wrap:wrap" aria-label="Footer navigacija">
+    <div class="footer-nav" style="display:flex;gap:1.5rem;flex-wrap:wrap" aria-label="Footer navigacija">
       <a href="index.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Početna</a>
       <a href="o-nama.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">O nama</a>
       <a href="projektovanje-kuca-novi-sad.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Projektovanje kuća NS</a>
@@ -312,7 +312,7 @@
       <a href="projekti.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Projekti</a>
       <a href="dijaspora.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Dijaspora</a>
       <a href="blog.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Blog</a>
-    </nav>
+    </div>
     <div class="fl">&copy; 2026 Nataša Vujčin &mdash; Projektni biro VUJČIN &middot; Novi Sad &middot; Sva prava zadržana</div>
   </footer>
 
