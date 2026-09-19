@@ -91,13 +91,29 @@
       #nav{padding:1rem 1.5rem}
       .ct{padding:0 1.5rem}
     }
-  </style>
+  
+    .menu-btn { display: none; background: transparent; border: none; color: var(--white); cursor: pointer; padding: 0.5rem; }
+    #nav.sc .menu-btn { color: var(--bark); }
+    .nav-links { display: flex; gap: .7rem; align-items: center; }
+    @media (max-width: 950px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,248,243,.98); backdrop-filter: blur(16px); padding: 1.5rem; flex-direction: column; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-top: 1px solid var(--stone-dark); }
+      .nav-links.active { display: flex; }
+      .nav-links a { width: 100%; text-align: center; }
+      .nav-links .nc.ghost { background: transparent !important; color: var(--bark) !important; border-color: var(--stone-dark) !important; }
+      .nav-links .nc.ghost:hover { background: var(--stone-pale) !important; border-color: var(--bark) !important; }
+      .nl { white-space: normal; flex: 1; }
+    }
+    </style>
 </head>
 <body>
 
   <nav id="nav">
     <a href="index.html" class="nl">VUJČIN | Projektni Biro</a>
-    <div style="display:flex;gap:.7rem;align-items:center">
+    <button class="menu-btn" aria-label="Meni" onclick="document.getElementById('nav-links').classList.toggle('active')">
+      <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="index.html" class="nc ghost">Početna</a>
       <a href="o-nama.html" class="nc ghost">O nama</a>
       <a href="usluge.html" class="nc ghost">Usluge</a>

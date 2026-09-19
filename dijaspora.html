@@ -144,13 +144,29 @@
       .hero{padding:7.5rem 0 4.5rem}
       .market-section .ct > div{grid-template-columns:1fr !important;gap:2.5rem !important}
     }
-  </style>
+  
+    .menu-btn { display: none; background: transparent; border: none; color: var(--white); cursor: pointer; padding: 0.5rem; }
+    #nav.sc .menu-btn { color: var(--bark); }
+    .nav-links { display: flex; gap: .7rem; align-items: center; }
+    @media (max-width: 950px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,248,243,.98); backdrop-filter: blur(16px); padding: 1.5rem; flex-direction: column; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-top: 1px solid var(--stone-dark); }
+      .nav-links.active { display: flex; }
+      .nav-links a { width: 100%; text-align: center; }
+      .nav-links .nc.ghost { background: transparent !important; color: var(--bark) !important; border-color: var(--stone-dark) !important; }
+      .nav-links .nc.ghost:hover { background: var(--stone-pale) !important; border-color: var(--bark) !important; }
+      .nl { white-space: normal; flex: 1; }
+    }
+    </style>
 </head>
 <body>
 
   <nav id="nav">
     <a href="index.html" class="nl">VUJČIN | Projektni Biro</a>
-    <div style="display:flex;gap:.7rem;align-items:center">
+    <button class="menu-btn" aria-label="Meni" onclick="document.getElementById('nav-links').classList.toggle('active')">
+      <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="index.html" class="nc ghost">Početna</a>
       <a href="o-nama.html" class="nc ghost">O nama</a>
       <a href="usluge.html" class="nc ghost">Usluge</a>
@@ -326,9 +342,18 @@
           <h2 class="st" style="margin-bottom:1rem">Krenite danas &mdash;<br/><em>besplatno.</em></h2>
           <p style="font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:2rem">Popunite formular i odmah započnite Vaš projekat. U roku od jednog radnog dana kontaktiramo Vas radi dogovora o terminu online konsultacije. Prva konsultacija je uvek besplatna.</p>
           <div style="display:flex;flex-direction:column;gap:.7rem;font-size:.88rem;color:var(--text-mid)">
-            <div style="display:flex;gap:.7rem;align-items:center"><svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"></polyline></svg>Odgovor u roku od 24h radnog dana</div>
-            <div style="display:flex;gap:.7rem;align-items:center"><svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"></polyline></svg>Besplatna prva konsultacija</div>
-            <div style="display:flex;gap:.7rem;align-items:center"><svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"></polyline></svg>Bez obaveza i bez potpisa</div>
+            <button class="menu-btn" aria-label="Meni" onclick="document.getElementById('nav-links').classList.toggle('active')">
+      <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="nav-links" id="nav-links"><svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"></polyline></svg>Odgovor u roku od 24h radnog dana</div>
+            <button class="menu-btn" aria-label="Meni" onclick="document.getElementById('nav-links').classList.toggle('active')">
+      <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="nav-links" id="nav-links"><svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"></polyline></svg>Besplatna prva konsultacija</div>
+            <button class="menu-btn" aria-label="Meni" onclick="document.getElementById('nav-links').classList.toggle('active')">
+      <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="nav-links" id="nav-links"><svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"></polyline></svg>Bez obaveza i bez potpisa</div>
           </div>
         </div>
         <form id="dijaspora-form" novalidate>

@@ -346,7 +346,17 @@
     .ps h3{font-family:var(--serif);font-size:1.05rem;font-weight:500;color:var(--bark);margin-bottom:.4rem}
 
     /* MOBILE RESPONSIVENESS */
+    @media (max-width: 1024px) {
+      .pl { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+      .pl::before { display: none; }
+      .ai { grid-template-columns: 1fr; gap: 3rem; }
+      .hc h1 { font-size: 4rem; }
+      .hc { padding: 8rem 2.5rem 5rem; }
+    }
     @media (max-width: 768px) {
+      .hc h1 { font-size: 3rem; }
+      .hc { padding: 8rem 1.5rem 4rem; }
+      .ha { justify-content: center; }
       #nav { padding: 1rem 1.4rem; }
       .nl { font-size: 1.05rem; }
       .nc { padding: .45rem 1rem; font-size: .76rem; }
@@ -356,13 +366,27 @@
       .ri { flex-direction: column; text-align: center; gap: 2rem; }
       .cin { grid-template-columns: 1fr; gap: 3rem; }
       .fr { grid-template-columns: 1fr; }
+      .pl { grid-template-columns: 1fr; gap: 1.5rem; }
     }
     @media (max-width: 480px) {
-      #nav-usluge, #nav-projekti, #nav-onama { display: none; }
+      
       .nl { font-size: .95rem; }
       .nc { padding: .42rem .85rem; font-size: .74rem; }
     }
-  </style>
+  
+    .menu-btn { display: none; background: transparent; border: none; color: var(--white); cursor: pointer; padding: 0.5rem; }
+    #nav.sc .menu-btn { color: var(--bark); }
+    .nav-links { display: flex; gap: .7rem; align-items: center; }
+    @media (max-width: 950px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(250,248,243,.98); backdrop-filter: blur(16px); padding: 1.5rem; flex-direction: column; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-top: 1px solid var(--stone-dark); }
+      .nav-links.active { display: flex; }
+      .nav-links a { width: 100%; text-align: center; }
+      .nav-links .nc.ghost { background: transparent !important; color: var(--bark) !important; border-color: var(--stone-dark) !important; }
+      .nav-links .nc.ghost:hover { background: var(--stone-pale) !important; border-color: var(--bark) !important; }
+      .nl { white-space: normal; flex: 1; }
+    }
+    </style>
 </head>
 <body>
   <div class="blob-layer" aria-hidden="true">
@@ -482,7 +506,10 @@
 
   <nav id="nav">
     <a href="index.html" class="nl">VUJČIN | Projektni Biro</a>
-    <div style="display:flex;gap:.7rem;align-items:center">
+    <button class="menu-btn" aria-label="Meni" onclick="document.getElementById('nav-links').classList.toggle('active')">
+      <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="o-nama.html" class="nc ghost" id="nav-onama">O nama</a>
       <a href="usluge.html" class="nc ghost" id="nav-usluge">Usluge</a>
       <a href="projekti.html" class="nc ghost" id="nav-projekti">Projekti</a>
