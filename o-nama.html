@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>O Nama | Nataša Vujčin — Arhitekta i Projektant Novi Sad</title>
-  <meta name="description" content="Upoznajte Natašu Vujčin, osnivača Projektnog biroa VUJČIN u Novom Sadu. 15+ godina iskustva u projektovanju porodičnih kuća, vila i stambenih objekata u Vojvodini i Srbiji." />
+  <meta name="description" content="Upoznajte Natašu Vujčin, osnivača Projektnog biroa VUJČIN u Novom Sadu. 20 godina iskustva u projektovanju porodičnih kuća, vila, vikendica i uređenju dvorišta u Vojvodini i Srbiji." />
   <link rel="canonical" href="https://projektni-biro-vujcin.vercel.app/o-nama.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,13 +21,22 @@
       "worksFor": {
         "@type": "LocalBusiness",
         "name": "Projektni biro VUJČIN",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Bulevar Kneza Miloša 30",
-          "addressLocality": "Novi Sad",
-          "postalCode": "21000",
-          "addressCountry": "RS"
-        },
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Bulevar Kneza Miloša 30",
+            "addressLocality": "Novi Sad",
+            "postalCode": "21000",
+            "addressCountry": "RS"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Bulevar Slobodana Jovanovića 15, lok 19",
+            "addressLocality": "Novi Sad",
+            "postalCode": "21000",
+            "addressCountry": "RS"
+          }
+        ],
         "telephone": "+381652482422",
         "email": "pb.vujcin@gmail.com"
       },
@@ -38,7 +47,7 @@
       "knowsAbout": [
         "Arhitektonsko projektovanje porodičnih kuća",
         "Izrada projektne dokumentacije (IDR, PGD, PZI)",
-        "Stručni nadzor gradnje",
+        "Upotrebna dozvola i vođenje CEOP procedura",
         "Energetska efikasnost i zakonodavstvo u građevinarstvu Srbije"
       ]
     }
@@ -104,12 +113,6 @@
     .cred-title{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--bark);margin-bottom:.4rem}
     .cred-desc{font-size:.85rem;color:var(--text-soft);line-height:1.6}
 
-    /* PRESS / AUTHORITY SIGNAL */
-    .press-section{background:var(--stone);padding:5rem 0;border-top:1px solid var(--stone-dark);border-bottom:1px solid var(--stone-dark)}
-    .press-box{background:var(--white);border-radius:24px;border:1.5px solid var(--stone-dark);padding:2.5rem 3rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
-    .press-badge{background:var(--sage-pale);color:var(--sage);padding:.6rem 1.2rem;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
-    .press-title{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:var(--bark);margin-bottom:.5rem}
-    .press-desc{font-size:.9rem;color:var(--text-mid);line-height:1.7}
 
     /* CTA */
     .cta-band{background:var(--sage);padding:5rem 0;color:var(--white)}
@@ -126,7 +129,6 @@
     @media (max-width:860px){
       .bio-grid{grid-template-columns:1fr;gap:2.5rem}
       .cred-grid{grid-template-columns:1fr}
-      .press-box{grid-template-columns:1fr;gap:1.5rem}
       #nav{padding:1rem 1.4rem}
       .ct{padding:0 1.5rem}
     }
@@ -183,9 +185,9 @@
           <div class="bio-role">Diplomirani inženjer &middot; Osnivač biroa</div>
           <div class="bio-facts">
             <div class="bio-fact"><span class="bio-fact-label">Obrazovanje:</span><span class="bio-fact-val">Građevinski fakultet Subotica (UNS)</span></div>
-            <div class="bio-fact"><span class="bio-fact-label">Iskustvo:</span><span class="bio-fact-val">15+ godina samostalne prakse</span></div>
-            <div class="bio-fact"><span class="bio-fact-label">Lokacija:</span><span class="bio-fact-val">Novi Sad, Bulevar kneza Miloša 30</span></div>
-            <div class="bio-fact"><span class="bio-fact-label">Fokus:</span><span class="bio-fact-val">Porodične kuće, vile, urbanizam</span></div>
+            <div class="bio-fact"><span class="bio-fact-label">Iskustvo:</span><span class="bio-fact-val">20 godina profesionalnog iskustva</span></div>
+            <div class="bio-fact"><span class="bio-fact-label">Lokacija:</span><span class="bio-fact-val">Novi Sad: Bul. kneza Miloša 30 / Bul. Slobodana Jovanovića 15, lok 19</span></div>
+            <div class="bio-fact"><span class="bio-fact-label">Fokus:</span><span class="bio-fact-val">Porodične kuće, vile, vikendice, uređenje dvorišta</span></div>
             <div class="bio-fact"><span class="bio-fact-label">Kontakt:</span><span class="bio-fact-val"><a href="tel:+381652482422" style="color:var(--sage);text-decoration:none">+381 65 2482422</a></span></div>
           </div>
         </div>
@@ -194,22 +196,22 @@
           <p class="sl2">Naša priča i filozofija</p>
           <h2>Kuća nije samo crtež na papiru — to je životna investicija Vaše porodice.</h2>
           <p>Kada gradite kuću, ne angažujete samo nekoga da iscrta zidove u softveru. Angažujete partnera koji će zaštititi Vaš novac od nepotrebnih izvođačkih grešaka, Vaše živce od lutanja po šalterima, i osigurati da svaki kvadrat funkcioniše savršeno decenijama unapred.</p>
-          <p>Nakon diplomiranja na Univerzitetu u Novom Sadu (Građevinski fakultet u Subotici), Nataša Vujčin je posvetila proteklih 15 godina razvoju prepoznatljivog pristupa: spoju <strong>rigorozne konstruktivne logike</strong> i <strong>savremene stambene estetike</strong>.</p>
+          <p>Nakon diplomiranja na Univerzitetu u Novom Sadu (Građevinski fakultet u Subotici), Nataša Vujčin je posvetila proteklih 20 godina razvoju prepoznatljivog pristupa: spoju <strong>rigorozne konstruktivne logike</strong> i <strong>savremene stambene estetike</strong>.</p>
           
           <div class="bio-quote">
             "Naš cilj nikada nije bio da budemo fabrički biro koji štancuje tipske projekte. Svaka parcela u Novom Sadu, na Fruškoj gori ili u Vojvodini ima svoju priču — pad terena, sunčevu svetlost, vetrove i propise. Naš posao je da iz toga izvučemo remek-delo."
           </div>
 
-          <p>Posebnu specijalnost biroa predstavlja <strong>100% digitalni radni tok za klijente iz dijaspore</strong> (Nemačka, Austrija, Švajcarska). Razvili smo sistem gde investitor iz Frankfurta ili Ciriha dobija kompletnu građevinsku dozvolu, nadzor i gotov objekat bez ijednog obaveznog putovanja u Srbiju.</p>
+          <p>Posebnu specijalnost biroa predstavlja <strong>100% digitalni radni tok za klijente iz dijaspore</strong> (Nemačka, Austrija, Švajcarska). Razvili smo sistem gde investitor iz Frankfurta ili Ciriha dobija kompletnu građevinsku dozvolu i tehničku podršku bez nepotrebnog dolaska u Srbiju.</p>
         </div>
       </div>
 
       <!-- CREDENTIALS STRIP -->
       <div class="cred-grid">
         <div class="cred-card">
-          <div class="cred-num">15+</div>
+          <div class="cred-num">20</div>
           <div class="cred-title">Godina profesionalnog rada</div>
-          <p class="cred-desc">Preko deceniju i po uspešnog rešavanja najzahtevnijih urbanističkih i inženjerskih izazova u Srbiji.</p>
+          <p class="cred-desc">Preko dve decenije uspešnog rešavanja najzahtevnijih urbanističkih i inženjerskih izazova u Srbiji.</p>
         </div>
         <div class="cred-card">
           <div class="cred-num">100%</div>
@@ -223,19 +225,6 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- PRESS & REPUTATION -->
-  <section class="press-section">
-    <div class="ct">
-      <div class="press-box">
-        <div class="press-badge">Medijska referenca &middot; eKapija</div>
-        <div>
-          <h3 class="press-title">Zabeleženo na portalu eKapija: Planirana ekspanzija industrijskog kompleksa u Budisavi</h3>
-          <p class="press-desc">U maju 2026. godine, vodeći privredni portal <strong>eKapija</strong> izvestio je o planiranoj izgradnji i proširenju proizvodnog kompleksa u Budisavi (Grad Novi Sad), gde je kompletnu dokumentaciju za lokacijske uslove i urbanističku koordinaciju izradio <strong>Projektni biro VUJČIN</strong>. Ova referenca potvrđuje stručnost biroa na kompleksnim institucionalnim i komercijalnim poduhvatima.</p>
-        </div>
-      </div>
     </div>
   </section>
 

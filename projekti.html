@@ -374,7 +374,133 @@
       .nav-links .nc.ghost:hover { background: var(--stone-pale) !important; border-color: var(--bark) !important; }
       .nl { white-space: normal; flex: 1; }
     }
-    </style>
+  
+    /* ═══════════════════════════════════════════════════
+       LIGHTBOX GALLERY
+       ═══════════════════════════════════════════════════ */
+    .lb-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(10,8,5,.92);
+      backdrop-filter: blur(18px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity .4s cubic-bezier(0.16,1,0.3,1), visibility .4s;
+    }
+    .lb-overlay.lb-open {
+      opacity: 1; visibility: visible;
+    }
+    .lb-wrap {
+      position: relative;
+      width: min(92vw, 1100px);
+      height: min(85vh, 800px);
+      display: flex; flex-direction: column; align-items: center;
+    }
+    /* Main image area */
+    .lb-stage {
+      position: relative;
+      width: 100%; flex: 1; overflow: hidden; border-radius: 4px;
+      background: #111;
+    }
+    .lb-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity .4s cubic-bezier(0.16,1,0.3,1), transform .45s cubic-bezier(0.16,1,0.3,1);
+      transform: scale(.97);
+      will-change: opacity, transform;
+    }
+    .lb-img.lb-active {
+      opacity: 1; transform: scale(1);
+    }
+    .lb-img.lb-prev-out { opacity: 0; transform: translateX(-4%) scale(.97); }
+    .lb-img.lb-next-out { opacity: 0; transform: translateX(4%) scale(.97); }
+    /* Arrows */
+    .lb-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 52px; height: 52px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; cursor: pointer;
+      transition: background .25s, border-color .25s, transform .3s cubic-bezier(0.16,1,0.3,1);
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+    .lb-arrow:hover {
+      background: rgba(154,29,29,.6);
+      border-color: rgba(154,29,29,.8);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .lb-prev { left: -26px; }
+    .lb-next { right: -26px; }
+    .lb-arrow svg { pointer-events: none; }
+    /* Close */
+    .lb-close {
+      position: absolute; top: -48px; right: 0;
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.8); cursor: pointer;
+      transition: background .25s, color .25s, transform .3s cubic-bezier(0.16,1,0.3,1);
+      z-index: 10;
+    }
+    .lb-close:hover {
+      background: rgba(154,29,29,.6); color: #fff;
+      transform: rotate(90deg) scale(1.08);
+    }
+    /* Counter */
+    .lb-counter {
+      position: absolute; top: -46px; left: 0;
+      font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+    /* Dots */
+    .lb-dots {
+      display: flex; gap: .55rem; align-items: center;
+      padding-top: 1.1rem;
+    }
+    .lb-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,.25);
+      cursor: pointer;
+      transition: background .3s, transform .3s;
+      border: none; padding: 0;
+    }
+    .lb-dot.lb-dot-active {
+      background: #9A1D1D;
+      transform: scale(1.35);
+    }
+    /* Thumbnails strip */
+    .lb-thumbs {
+      display: flex; gap: .6rem; padding-top: .8rem; flex-wrap: wrap; justify-content: center;
+    }
+    .lb-thumb {
+      width: 68px; height: 46px; border-radius: 3px; overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: border-color .25s, opacity .25s, transform .25s;
+      opacity: .5;
+      flex-shrink: 0;
+    }
+    .lb-thumb.lb-thumb-active {
+      border-color: #9A1D1D; opacity: 1;
+    }
+    .lb-thumb:hover { opacity: .85; transform: translateY(-2px); }
+    .lb-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* Image cursor hint */
+    .fp-img-wrap { cursor: zoom-in; }
+    @media (max-width: 600px) {
+      .lb-prev { left: -18px; }
+      .lb-next { right: -18px; }
+      .lb-arrow { width: 40px; height: 40px; }
+      .lb-thumb { width: 52px; height: 36px; }
+    }
+
+  </style>
 </head>
 <body>
   <div class="blob-layer" aria-hidden="true">
@@ -427,25 +553,25 @@
             </div>
           </div>
         </div>
-        <p class="fp-counter">&mdash;&nbsp;04 Prikazana projekta</p>
+        <p class="fp-counter">&mdash;&nbsp;08 Prikazanih projekata</p>
       </div>
 
       <!-- ── RIGHT: Scrolling project cards ─────────── -->
       <div class="fp-right">
 
-        <!-- ─ Card 01 ─ -->
+        <!-- ─ Card 01 ─ U komšiluku -->
         <article class="fp-card" id="fp-card-1">
-          <span class="fp-card-num">01 / 04</span>
+          <span class="fp-card-num">01 / 08</span>
           <div class="fp-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=85"
-              alt="Vila Fruška &mdash; luksuzna porodična vila, Sremska Kamenica"
-              loading="lazy" width="1400" height="875"
+              src="images/Fotografije/1-U%20kom%C5%A1iluku/1.jpg"
+              alt="U komšiluku — porodična kuća, Novi Sad"
+              loading="lazy" width="1920" height="1080"
             />
             <div class="fp-img-reveal" aria-hidden="true"></div>
           </div>
-          <h3 class="fp-card-title">Vila Fruška — Sremska Kamenica</h3>
-          <p class="fp-card-desc">Privatna rezidencija u podnožju Fruške gore &mdash; organička arhitektura koja stapa kamene mase, ekspanzivno staklo i drvenu oplatu u jedinstven volumen koji diše zajedno s okolišem. Projektovano 100% digitalno za klijenta iz inostranstva.</p>
+          <h3 class="fp-card-title">U komšiluku — Novi Sad</h3>
+          <p class="fp-card-desc">Trudimo se da maksimalno izađemo u susret volji porodice. Da ispunimo sve njihove želje i velike i male. Ovo je jedna baš takva, koja u sebi krije mesto za svakog člana podjednako.</p>
           <div class="fp-meta">
             <div class="fp-meta-row">
               <span class="fp-meta-k">Status</span>
@@ -453,37 +579,113 @@
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Lokacija</span>
-              <span class="fp-meta-v">Sremska Kamenica, Novi Sad</span>
+              <span class="fp-meta-v">Novi Sad</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Tip objekta</span>
-              <span class="fp-meta-v">Luksuzna Porodična Vila</span>
+              <span class="fp-meta-v">Porodična kuća</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Površina</span>
-              <span class="fp-meta-v">240 m²</span>
+              <span class="fp-meta-v">115 m²</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Faze</span>
-              <span class="fp-meta-v">IDR · PGD · PZI · Nadzor</span>
+              <span class="fp-meta-v">IDR · PGD</span>
             </div>
           </div>
           <a href="index.html#kontakt" class="fp-link">Pokrenite sličan projekat &nbsp;&rarr;</a>
         </article>
 
-        <!-- ─ Card 02 ─ -->
+        <!-- ─ Card 02 ─ U nizu -->
         <article class="fp-card" id="fp-card-2">
-          <span class="fp-card-num">02 / 04</span>
+          <span class="fp-card-num">02 / 08</span>
           <div class="fp-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&q=85"
-              alt="Rezidencija Petrovaradin &mdash; urbana vila, Novi Sad"
-              loading="lazy" width="1400" height="875"
+              src="images/Fotografije/2-U%20nizu/1.jpg"
+              alt="U nizu — porodična kuća sa 3 stana, Futog"
+              loading="lazy" width="1920" height="1080"
             />
             <div class="fp-img-reveal" aria-hidden="true"></div>
           </div>
-          <h3 class="fp-card-title">Rezidencija Petrovaradin — Novi Sad</h3>
-          <p class="fp-card-desc">Urbana porodična kuća na rubu tvrđavskog platoa &mdash; minimalistički beton i ekspanzivni stakleni okviri koji zarobljavaju panoramu Dunava i pretvaraju je u živi umetnički deo dnevnog boravka.</p>
+          <h3 class="fp-card-title">U nizu — Futog</h3>
+          <p class="fp-card-desc">Kada se sakupe porodice koje se znaju i shvate da im je najisplativije da zidaju zajedno a žive odvojeno. Kolege, kumovi, pobratimi su napravili svoj svet.</p>
+          <div class="fp-meta">
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Status</span>
+              <span class="fp-meta-v fp-s-u-radu">U izvođenju</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Lokacija</span>
+              <span class="fp-meta-v">Futog</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Tip objekta</span>
+              <span class="fp-meta-v">Porodična kuća sa 3 stana</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Površina</span>
+              <span class="fp-meta-v">3 × 140 m²</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Faze</span>
+              <span class="fp-meta-v">IDR · PGD · PZI</span>
+            </div>
+          </div>
+          <a href="index.html#kontakt" class="fp-link">Pokrenite sličan projekat &nbsp;&rarr;</a>
+        </article>
+
+        <!-- ─ Card 03 ─ Mir -->
+        <article class="fp-card" id="fp-card-3">
+          <span class="fp-card-num">03 / 08</span>
+          <div class="fp-img-wrap">
+            <img
+              src="images/Fotografije/3-Mir/1.jpg"
+              alt="Mir — porodična kuća, Petrovaradin"
+              loading="lazy" width="1920" height="1080"
+            />
+            <div class="fp-img-reveal" aria-hidden="true"></div>
+          </div>
+          <h3 class="fp-card-title">Mir — Petrovaradin</h3>
+          <p class="fp-card-desc">Kada deca porastu a Vi želite svoju baštu sa cvećem, košnice sa pčelama, zelenu boju oko Vas. Shvatite da je najbolja kvadratura ona koja je TAMAN.</p>
+          <div class="fp-meta">
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Status</span>
+              <span class="fp-meta-v fp-s-izvedeno">Izvedena</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Lokacija</span>
+              <span class="fp-meta-v">Petrovaradin</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Tip objekta</span>
+              <span class="fp-meta-v">Porodična kuća</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Površina</span>
+              <span class="fp-meta-v">135 m²</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Faze</span>
+              <span class="fp-meta-v">IDR · PGD · PZI · Upotrebna</span>
+            </div>
+          </div>
+          <a href="index.html#kontakt" class="fp-link">Pokrenite sličan projekat &nbsp;&rarr;</a>
+        </article>
+
+        <!-- ─ Card 04 ─ NS Bajka -->
+        <article class="fp-card" id="fp-card-4">
+          <span class="fp-card-num">04 / 08</span>
+          <div class="fp-img-wrap">
+            <img
+              src="images/Fotografije/4-%20NS%20Bajka/1.png"
+              alt="NS Bajka — dvorište, Veternik"
+              loading="lazy" width="2048" height="1152"
+            />
+            <div class="fp-img-reveal" aria-hidden="true"></div>
+          </div>
+          <h3 class="fp-card-title">NS Bajka — Veternik</h3>
+          <p class="fp-card-desc">Veliko zadovoljstvo je bilo raditi ovu &bdquo;Bajku&ldquo;, prisustvovati izvođenju i popiti kafu na svom delu. Fantastična zamisao klijenata sprovedena u delo.</p>
           <div class="fp-meta">
             <div class="fp-meta-row">
               <span class="fp-meta-k">Status</span>
@@ -491,101 +693,175 @@
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Lokacija</span>
-              <span class="fp-meta-v">Petrovaradin, Novi Sad</span>
+              <span class="fp-meta-v">Veternik</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Tip objekta</span>
-              <span class="fp-meta-v">Urbana Rezidencija</span>
+              <span class="fp-meta-v">Dvorište</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Površina</span>
-              <span class="fp-meta-v">195 m²</span>
+              <span class="fp-meta-v">cca 520 m²</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Faze</span>
-              <span class="fp-meta-v">IDR · PGD · PZI · Nadzor</span>
+              <span class="fp-meta-v">IDR · PGD · PZI</span>
             </div>
           </div>
           <a href="index.html#kontakt" class="fp-link">Pokrenite sličan projekat &nbsp;&rarr;</a>
         </article>
 
-        <!-- ─ Card 03 ─ -->
-        <article class="fp-card" id="fp-card-3">
-          <span class="fp-card-num">03 / 04</span>
+        <!-- ─ Card 05 ─ Ukroćena -->
+        <article class="fp-card" id="fp-card-5">
+          <span class="fp-card-num">05 / 08</span>
           <div class="fp-img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1400&q=85"
-              alt="Stambeni Kompleks Limburg &mdash; savremeni stambeni kompleks, Nema&#269;ka"
-              loading="lazy" width="1400" height="875"
+              src="images/Fotografije/5-Ukro%C4%87ena%2C/2.jpg"
+              alt="Ukroćena — vikend kuća, Beočin"
+              loading="lazy" width="3840" height="2160"
             />
             <div class="fp-img-reveal" aria-hidden="true"></div>
           </div>
-          <h3 class="fp-card-title">Stambeni Objekat Limburg &mdash; Dijaspora</h3>
-          <p class="fp-card-desc">Savremeni stambeni kompleks za srpsku dijasporu &mdash; 450 m², 12 stanova projektovanih prema nema&#269;kim standardima energetske efikasnosti. Kompletan projekat realizovan 100% digitalno bez ni jednog putovanja klijenta.</p>
+          <h3 class="fp-card-title">Ukroćena — Beočin</h3>
+          <p class="fp-card-desc">Uf kad imate ovako &bdquo;kosi&ldquo; plac&hellip; jedno je sigurno&hellip; pogled ka gradu je FANTASTIČAN!!!</p>
           <div class="fp-meta">
             <div class="fp-meta-row">
               <span class="fp-meta-k">Status</span>
-              <span class="fp-meta-v fp-s-u-radu">U Radu</span>
+              <span class="fp-meta-v fp-s-isprojektovano">Isprojektovano</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Lokacija</span>
-              <span class="fp-meta-v">Limburg an der Lahn, Nemač&#269;ka</span>
+              <span class="fp-meta-v">Beočin</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Tip objekta</span>
-              <span class="fp-meta-v">Stambeni Kompleks</span>
+              <span class="fp-meta-v">Vikend kuća / Dvorište</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Površina</span>
-              <span class="fp-meta-v">450 m²</span>
-            </div>
-            <div class="fp-meta-row">
-              <span class="fp-meta-k">Radni tok</span>
-              <span class="fp-meta-v">100% Digitalni proces</span>
-            </div>
-          </div>
-          <a href="dijaspora.html" class="fp-link">Saznajte o dijaspora projektu &nbsp;&rarr;</a>
-        </article>
-
-        <!-- ─ Card 04 ─ -->
-        <article class="fp-card" id="fp-card-4">
-          <span class="fp-card-num">04 / 04</span>
-          <div class="fp-img-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&q=85"
-              alt="Industrijski kompleks Budisava Novi Sad — lokacijski uslovi Projektni biro VUJČIN"
-              loading="lazy" width="1400" height="875"
-            />
-            <div class="fp-img-reveal" aria-hidden="true"></div>
-          </div>
-          <div style="display:inline-flex;align-items:center;gap:.4rem;background:var(--sage-pale);color:var(--sage);padding:.25rem .8rem;border-radius:50px;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8rem">Zabeleženo na portalu eKapija</div>
-          <h3 class="fp-card-title">Industrijsko-poslovni kompleks Budisava — Novi Sad</h3>
-          <p class="fp-card-desc">Urbanistička koordinacija i izrada kompletne dokumentacije za lokacijske uslove proširenja privredno-proizvodnog pogona u Budisavi. Projekat potvrđuje inženjersku sposobnost biroa u rešavanju složenih privrednih i urbanističkih procedura pred Gradskom upravom Novog Sada.</p>
-          <div class="fp-meta">
-            <div class="fp-meta-row">
-              <span class="fp-meta-k">Status</span>
-              <span class="fp-meta-v fp-s-isprojektovano">Lokacijski uslovi dobijeni</span>
-            </div>
-            <div class="fp-meta-row">
-              <span class="fp-meta-k">Lokacija</span>
-              <span class="fp-meta-v">Budisava, Novi Sad</span>
-            </div>
-            <div class="fp-meta-row">
-              <span class="fp-meta-k">Tip objekta</span>
-              <span class="fp-meta-v">Industrijsko-poslovni pogon</span>
-            </div>
-            <div class="fp-meta-row">
-              <span class="fp-meta-k">Površina</span>
-              <span class="fp-meta-v">1.200 m²</span>
+              <span class="fp-meta-v">119 m² / 738 m²</span>
             </div>
             <div class="fp-meta-row">
               <span class="fp-meta-k">Faze</span>
-              <span class="fp-meta-v">Urbanistički projekat · IDR · Lokacijski uslovi</span>
+              <span class="fp-meta-v">IDR · PGD · PZI</span>
             </div>
           </div>
-          <a href="index.html#kontakt" class="fp-link">Zatražite ponudu za sličan poduhvat &nbsp;&rarr;</a>
+          <a href="index.html#kontakt" class="fp-link">Pokrenite sličan projekat &nbsp;&rarr;</a>
         </article>
 
+        <!-- ─ Card 06 ─ Dama -->
+        <article class="fp-card" id="fp-card-6">
+          <span class="fp-card-num">06 / 08</span>
+          <div class="fp-img-wrap">
+            <img
+              src="images/Fotografije/6-Dama/1.jpg"
+              alt="Dama — porodična vila, Kovilj"
+              loading="lazy" width="1920" height="1080"
+            />
+            <div class="fp-img-reveal" aria-hidden="true"></div>
+          </div>
+          <h3 class="fp-card-title">Dama — Kovilj</h3>
+          <p class="fp-card-desc">Volim kada mlada porodica želi da zadrži stari šarm Novog Sada. Ovde smo imali dosta ograničenja ali uspeli smo sve da ih prilagodimo zahtevima porodice.</p>
+          <div class="fp-meta">
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Status</span>
+              <span class="fp-meta-v fp-s-isprojektovano">Isprojektovano</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Lokacija</span>
+              <span class="fp-meta-v">Kovilj</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Tip objekta</span>
+              <span class="fp-meta-v">Porodična vila</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Površina</span>
+              <span class="fp-meta-v">230 m²</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Faze</span>
+              <span class="fp-meta-v">IDR · PGD</span>
+            </div>
+          </div>
+          <a href="index.html#kontakt" class="fp-link">Pokrenite sličan projekat &nbsp;&rarr;</a>
+        </article>
+
+        <!-- ─ Card 07 ─ Vojvođanka -->
+        <article class="fp-card" id="fp-card-7">
+          <span class="fp-card-num">07 / 08</span>
+          <div class="fp-img-wrap">
+            <img
+              src="images/Fotografije/7-Vojvo%C4%91anka/2-AI.png"
+              alt="Vojvođanka — porodična kuća, Ravno Selo"
+              loading="lazy" width="800" height="600"
+            />
+            <div class="fp-img-reveal" aria-hidden="true"></div>
+          </div>
+          <h3 class="fp-card-title">Vojvođanka — Ravno Selo</h3>
+          <p class="fp-card-desc">Sećanje na detinjstvo može da oživi. Malo modernije, opremljeno po sadašnjim visokim standardima ali ipak može da se oseti miris nedeljne supe.</p>
+          <div class="fp-meta">
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Status</span>
+              <span class="fp-meta-v fp-s-isprojektovano">Isprojektovano</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Lokacija</span>
+              <span class="fp-meta-v">Ravno Selo</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Tip objekta</span>
+              <span class="fp-meta-v">Porodična kuća</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Površina</span>
+              <span class="fp-meta-v">145 m²</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Faze</span>
+              <span class="fp-meta-v">IDR · PGD</span>
+            </div>
+          </div>
+          <a href="index.html#kontakt" class="fp-link">Pokrenite sličan projekat &nbsp;&rarr;</a>
+        </article>
+
+        <!-- ─ Card 08 ─ Moderna -->
+        <article class="fp-card" id="fp-card-8">
+          <span class="fp-card-num">08 / 08</span>
+          <div class="fp-img-wrap">
+            <img
+              src="images/Fotografije/8-Moderna/slika%201.jpg"
+              alt="Moderna — porodična vila, Novi Sad"
+              loading="lazy" width="2882" height="1440"
+            />
+            <div class="fp-img-reveal" aria-hidden="true"></div>
+          </div>
+          <h3 class="fp-card-title">Moderna — Novi Sad</h3>
+          <p class="fp-card-desc">Kada u prostoriju uđe Gospodin sa stilom, koji zna šta hoće, ostaje vam da pratite njegova uputstva i da napravite da to MOŽE. Kuća za dve generacije.</p>
+          <div class="fp-meta">
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Status</span>
+              <span class="fp-meta-v fp-s-u-radu">U projektovanju</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Lokacija</span>
+              <span class="fp-meta-v">Novi Sad</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Tip objekta</span>
+              <span class="fp-meta-v">Porodična vila</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Površina</span>
+              <span class="fp-meta-v">cca 360 m²</span>
+            </div>
+            <div class="fp-meta-row">
+              <span class="fp-meta-k">Faze</span>
+              <span class="fp-meta-v">IDR</span>
+            </div>
+          </div>
+          <a href="index.html#kontakt" class="fp-link">Pokrenite sličan projekat &nbsp;&rarr;</a>
+        </article>
       </div><!-- /fp-right -->
     </div><!-- /fp-inner -->
   </section>
@@ -601,7 +877,7 @@
       <a href="dijaspora.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Dijaspora</a>
       <a href="blog.html" style="color:rgba(245,240,232,.55);font-size:.78rem;text-decoration:none">Blog</a>
     </div>
-    <div class="fl">&copy; 2026 Nataša Vujčin &mdash; Projektni biro VUJČIN &middot; Novi Sad &middot; Sva prava zadržana</div>
+    <div class="fl">&copy; 2026 Nataša Vujčin &mdash; Projektni biro VUJČIN &middot; Novi Sad (Bul. kneza Miloša 30 / Bul. Slobodana Jovanovića 15, lok 19) &middot; Sva prava zadržana</div>
   </footer>
 
   <!-- GSAP 3 + ScrollTrigger CDN -->
@@ -716,6 +992,200 @@
         }
       });
     })();
+
+    /* ── LIGHTBOX GALLERY ─────────────────────────────── */
+    document.addEventListener('DOMContentLoaded', function () {
+    (function () {
+      const galleries = {
+        'fp-card-1': [
+          'images/Fotografije/1-U%20kom%C5%A1iluku/1.jpg',
+          'images/Fotografije/1-U%20kom%C5%A1iluku/2.jpg',
+          'images/Fotografije/1-U%20kom%C5%A1iluku/3.jpg'
+        ],
+        'fp-card-2': [
+          'images/Fotografije/2-U%20nizu/1.jpg',
+          'images/Fotografije/2-U%20nizu/2.jpg',
+          'images/Fotografije/2-U%20nizu/3.jpg'
+        ],
+        'fp-card-3': [
+          'images/Fotografije/3-Mir/1.jpg',
+          'images/Fotografije/3-Mir/2.jpg',
+          'images/Fotografije/3-Mir/3.jpg'
+        ],
+        'fp-card-4': [
+          'images/Fotografije/4-%20NS%20Bajka/1.png',
+          'images/Fotografije/4-%20NS%20Bajka/2.png',
+          'images/Fotografije/4-%20NS%20Bajka/3.png',
+          'images/Fotografije/4-%20NS%20Bajka/4.png',
+          'images/Fotografije/4-%20NS%20Bajka/5.jpg'
+        ],
+        'fp-card-5': [
+          'images/Fotografije/5-Ukro%C4%87ena%2C/2.jpg',
+          'images/Fotografije/5-Ukro%C4%87ena%2C/1.jpg',
+          'images/Fotografije/5-Ukro%C4%87ena%2C/3.jpg'
+        ],
+        'fp-card-6': [
+          'images/Fotografije/6-Dama/1.jpg',
+          'images/Fotografije/6-Dama/2.jpg',
+          'images/Fotografije/6-Dama/3.jpg'
+        ],
+        'fp-card-7': [
+          'images/Fotografije/7-Vojvo%C4%91anka/2-AI.png',
+          'images/Fotografije/7-Vojvo%C4%91anka/1.jpg',
+          'images/Fotografije/7-Vojvo%C4%91anka/2.jpg'
+        ],
+        'fp-card-8': [
+          'images/Fotografije/8-Moderna/slika%201.jpg',
+          'images/Fotografije/8-Moderna/slika%202.jpg',
+          'images/Fotografije/8-Moderna/slika%203.jpg'
+        ]
+      };
+
+      const overlay  = document.getElementById('lb-overlay');
+      const stage    = document.getElementById('lb-stage');
+      const dotsEl   = document.getElementById('lb-dots');
+      const thumbsEl = document.getElementById('lb-thumbs');
+      const counter  = document.getElementById('lb-counter');
+      const prevBtn  = document.getElementById('lb-prev');
+      const nextBtn  = document.getElementById('lb-next');
+      const closeBtn = document.getElementById('lb-close');
+
+      let imgs = [], cur = 0, imgEls = [], dotEls = [], thumbEls = [];
+
+      function buildGallery(srcs, startIdx) {
+        // Clear stage (keep arrows)
+        stage.querySelectorAll('.lb-img').forEach(el => el.remove());
+        dotsEl.innerHTML = '';
+        thumbsEl.innerHTML = '';
+        imgEls = []; dotEls = []; thumbEls = [];
+        imgs = srcs; cur = startIdx;
+
+        srcs.forEach(function(src, i) {
+          // Full image
+          const img = document.createElement('img');
+          img.className = 'lb-img';
+          img.src = src;
+          img.alt = 'Slika projekta ' + (i + 1);
+          img.loading = 'lazy';
+          stage.insertBefore(img, prevBtn);
+          imgEls.push(img);
+
+          // Dot
+          const dot = document.createElement('button');
+          dot.className = 'lb-dot' + (i === startIdx ? ' lb-dot-active' : '');
+          dot.setAttribute('aria-label', 'Slika ' + (i + 1));
+          dot.addEventListener('click', function() { goTo(i); });
+          dotsEl.appendChild(dot);
+          dotEls.push(dot);
+
+          // Thumbnail
+          const thumb = document.createElement('div');
+          thumb.className = 'lb-thumb' + (i === startIdx ? ' lb-thumb-active' : '');
+          const tImg = document.createElement('img');
+          tImg.src = src;
+          tImg.alt = '';
+          tImg.loading = 'lazy';
+          thumb.appendChild(tImg);
+          thumb.addEventListener('click', function() { goTo(i); });
+          thumbsEl.appendChild(thumb);
+          thumbEls.push(thumb);
+        });
+
+        // activate initial
+        imgEls[cur].classList.add('lb-active');
+        updateUI();
+      }
+
+      function updateUI() {
+        counter.textContent = (cur + 1) + ' / ' + imgs.length;
+        dotEls.forEach(function(d, i) { d.classList.toggle('lb-dot-active', i === cur); });
+        thumbEls.forEach(function(t, i) { t.classList.toggle('lb-thumb-active', i === cur); });
+        prevBtn.style.visibility = imgs.length <= 1 ? 'hidden' : 'visible';
+        nextBtn.style.visibility = imgs.length <= 1 ? 'hidden' : 'visible';
+      }
+
+      function goTo(idx) {
+        if (idx === cur) return;
+        const prev = cur;
+        cur = (idx + imgs.length) % imgs.length;
+        imgEls[prev].classList.remove('lb-active');
+        imgEls[prev].classList.add(idx > prev ? 'lb-prev-out' : 'lb-next-out');
+        setTimeout(function() {
+          imgEls[prev].classList.remove('lb-prev-out', 'lb-next-out');
+        }, 450);
+        imgEls[cur].classList.add('lb-active');
+        updateUI();
+      }
+
+      function open(cardId, imgIdx) {
+        const srcs = galleries[cardId];
+        if (!srcs) return;
+        buildGallery(srcs, imgIdx || 0);
+        overlay.classList.add('lb-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        overlay.classList.remove('lb-open');
+        document.body.style.overflow = '';
+      }
+
+      prevBtn.addEventListener('click', function() { goTo(cur - 1); });
+      nextBtn.addEventListener('click', function() { goTo(cur + 1); });
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+
+      // Keyboard
+      document.addEventListener('keydown', function(e) {
+        if (!overlay.classList.contains('lb-open')) return;
+        if (e.key === 'ArrowLeft')  { goTo(cur - 1); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { goTo(cur + 1); e.preventDefault(); }
+        if (e.key === 'Escape')     { close(); }
+      });
+
+      // Touch / swipe
+      let touchStartX = null;
+      stage.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend', function(e) {
+        if (touchStartX === null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) { dx < 0 ? goTo(cur + 1) : goTo(cur - 1); }
+        touchStartX = null;
+      });
+
+      // Wire up each card's image wrap
+      document.querySelectorAll('.fp-card').forEach(function(card) {
+        const wrap = card.querySelector('.fp-img-wrap');
+        if (!wrap) return;
+        wrap.addEventListener('click', function() {
+          open(card.id, 0);
+        });
+      });
+    })();
+    });
+
   </script>
+
+  <!-- ── LIGHTBOX GALLERY ──────────────────────────────── -->
+  <div class="lb-overlay" id="lb-overlay" role="dialog" aria-modal="true" aria-label="Galerija slika">
+    <div class="lb-wrap">
+      <span class="lb-counter" id="lb-counter">1 / 3</span>
+      <button class="lb-close" id="lb-close" aria-label="Zatvori galeriju">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="lb-stage" id="lb-stage">
+        <!-- images injected by JS -->
+        <button class="lb-arrow lb-prev" id="lb-prev" aria-label="Prethodna slika">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="lb-arrow lb-next" id="lb-next" aria-label="Sledeća slika">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="lb-dots" id="lb-dots"></div>
+      <div class="lb-thumbs" id="lb-thumbs"></div>
+    </div>
+  </div>
+
 </body>
 </html>
