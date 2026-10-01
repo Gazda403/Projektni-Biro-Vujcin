@@ -41,8 +41,8 @@
       --sage:#6B8F71;--sage-light:#A8C5AC;--sage-pale:#E8F0E9;
       --burgundy:#9A1D1D;--burgundy-light:#EAA0A0;
       --stone:#F5F0E8;--stone-dark:#E0D8C8;--cream:#FAF8F3;
-      --bark:#4A3728;--bark-light:#7A6050;
-      --text:#2C2418;--text-mid:#6A5D50;--text-soft:#9A8E82;--white:#FFFFFF;
+      --bark:#4A121A;--bark-light:#7E2633;
+      --text:#2C2023;--text-mid:#66555A;--text-soft:#98898D;--white:#FFFFFF;
       --serif:'Cormorant Garamond',Georgia,serif;
       --sans:'DM Sans',system-ui,sans-serif;
       --ease:cubic-bezier(0.16,1,0.3,1);
@@ -51,7 +51,7 @@
     body{font-family:var(--sans);background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.6}
 
     /* NAV */
-    #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,243,.97);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(74,55,40,.08)}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,243,.97);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(74,18,26,.08)}
     .nl{font-family:var(--serif);font-size:1.25rem;font-weight:500;letter-spacing:.08em;color:var(--bark);text-decoration:none}
     .nc{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.4rem;border-radius:50px;background:var(--burgundy);color:var(--white);font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:all .3s var(--ease)}
     .nc:hover{transform:scale(1.04)}
@@ -64,7 +64,7 @@
     .st em{font-style:italic;color:var(--sage)}
 
     /* HERO */
-    .hero{padding:9rem 0 5.5rem;background:linear-gradient(135deg,var(--bark) 0%,#261c12 100%);color:var(--white);position:relative;overflow:hidden}
+    .hero{padding:9rem 0 5.5rem;background:linear-gradient(135deg,var(--bark) 0%,#260B10 100%);color:var(--white);position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('images/projektovanje-kuca-novi-sad-vujcin.jpeg') center/cover;opacity:.15;pointer-events:none}
     .hero-content{position:relative;z-index:1;max-width:780px}
     .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(107,143,113,.2);border:1px solid rgba(107,143,113,.4);border-radius:50px;padding:.4rem 1.1rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-light);margin-bottom:1.4rem}
@@ -94,7 +94,7 @@
     /* PRICING BREAKDOWN */
     .pricing-section{padding:6rem 0;background:var(--stone);border-top:1px solid var(--stone-dark);border-bottom:1px solid var(--stone-dark)}
     .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-    .price-box{background:var(--white);border-radius:28px;border:1.5px solid var(--stone-dark);padding:3rem;box-shadow:0 12px 36px rgba(74,55,40,.06)}
+    .price-box{background:var(--white);border-radius:28px;border:1.5px solid var(--stone-dark);padding:3rem;box-shadow:0 12px 36px rgba(74,18,26,.06)}
     .price-tag{font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--burgundy);line-height:1;margin:1rem 0}
     .price-sub{font-size:.88rem;color:var(--text-soft);margin-bottom:1.8rem}
     .price-list{list-style:none;display:flex;flex-direction:column;gap:.7rem;font-size:.92rem;color:var(--text-mid)}
@@ -111,7 +111,7 @@
 
     /* FORM SECTION */
     .form-section{padding:6rem 0;background:var(--cream)}
-    .form-box{max-width:680px;margin:0 auto;background:var(--white);border-radius:28px;border:1.5px solid var(--stone-dark);padding:3.5rem;box-shadow:0 16px 40px rgba(74,55,40,.08)}
+    .form-box{max-width:680px;margin:0 auto;background:var(--white);border-radius:28px;border:1.5px solid var(--stone-dark);padding:3.5rem;box-shadow:0 16px 40px rgba(74,18,26,.08)}
     .fg{margin-bottom:1.2rem}
     .fg label{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.4rem}
     .fg input,.fg textarea,.fg select{width:100%;padding:.85rem 1.1rem;border:1.5px solid var(--stone-dark);border-radius:14px;background:var(--cream);font-family:var(--sans);font-size:.92rem;color:var(--text);outline:none;transition:all .3s}
