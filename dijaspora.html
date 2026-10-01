@@ -34,9 +34,9 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
       --sage:#6B8F71;--sage-light:#A8C5AC;--sage-pale:#E8F0E9;
-      --burgundy:#A01A2A;--burgundy-light:#F4C0C5;
+      --burgundy:#801320;--burgundy-light:#EBB8BD;
       --stone:#F5F0E8;--stone-dark:#E0D8C8;--cream:#FAF8F3;
-      --bark:#A01A2A;--bark-light:#C43849;
+      --bark:#801320;--bark-light:#A82232;
       --text:#2C2023;--text-mid:#66555A;--text-soft:#98898D;--white:#FFFFFF;
       --serif:'Cormorant Garamond',Georgia,serif;
       --sans:'DM Sans',system-ui,sans-serif;
@@ -46,7 +46,7 @@
     body{font-family:var(--sans);background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.6}
 
     /* NAV */
-    #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,243,.97);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(160,26,42,.08);transition:padding .3s}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,243,.97);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(128,19,32,.08);transition:padding .3s}
     .nl{font-family:var(--serif);font-size:1.25rem;font-weight:500;letter-spacing:.08em;color:var(--bark);text-decoration:none}
     .nc{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.4rem;border-radius:50px;background:var(--burgundy);color:var(--white);font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:transform .3s var(--ease),background .3s}
     .nc:hover{transform:scale(1.04);background:var(--burgundy-light)}
@@ -61,10 +61,10 @@
     /* HERO */
     .hero{
       background:
-        radial-gradient(circle at 12% 20%, rgba(160,26,42,.17) 0%, transparent 42%),
+        radial-gradient(circle at 12% 20%, rgba(128,19,32,.17) 0%, transparent 42%),
         radial-gradient(circle at 88% 80%, rgba(107,143,113,.22) 0%, transparent 48%),
         radial-gradient(circle at 55% 5%, rgba(224,216,200,.55) 0%, transparent 60%),
-        radial-gradient(rgba(160,26,42,.10) 1px, transparent 1px),
+        radial-gradient(rgba(128,19,32,.10) 1px, transparent 1px),
         var(--cream);
       background-size: auto, auto, auto, 28px 28px, auto;
       padding:9.5rem 0 6rem;
@@ -77,12 +77,12 @@
     .hero h1{font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:300;color:var(--bark);line-height:1.06;margin-bottom:1.4rem}
     .hero h1 em{font-style:italic;color:var(--sage)}
     .hero-sub{font-size:1.05rem;color:var(--text-mid);line-height:1.8;max-width:540px;margin-bottom:2.4rem}
-    .hero-cta{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2.4rem;border-radius:50px;background:var(--burgundy);color:var(--white);font-size:.92rem;font-weight:500;text-decoration:none;transition:background .3s,transform .3s var(--ease),box-shadow .3s;box-shadow:0 4px 20px rgba(160,26,42,.35)}
-    .hero-cta:hover{background:var(--burgundy-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(160,26,42,.45)}
+    .hero-cta{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2.4rem;border-radius:50px;background:var(--burgundy);color:var(--white);font-size:.92rem;font-weight:500;text-decoration:none;transition:background .3s,transform .3s var(--ease),box-shadow .3s;box-shadow:0 4px 20px rgba(128,19,32,.35)}
+    .hero-cta:hover{background:var(--burgundy-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(128,19,32,.45)}
 
     /* STATS */
     .hero-stats{display:flex;flex-direction:column;gap:1.3rem}
-    .stat-card{background:var(--white);border:1.5px solid var(--stone-dark);border-radius:22px;padding:1.6rem 2rem;box-shadow:0 8px 26px rgba(160,26,42,.04);transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+    .stat-card{background:var(--white);border:1.5px solid var(--stone-dark);border-radius:22px;padding:1.6rem 2rem;box-shadow:0 8px 26px rgba(128,19,32,.04);transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
     .stat-card:hover{transform:translateY(-3px);border-color:var(--sage-light);box-shadow:0 12px 32px rgba(107,143,113,.12)}
     .stat-num{font-family:var(--serif);font-size:2.8rem;font-weight:300;color:var(--bark);line-height:1;display:flex;align-items:baseline;gap:.3rem}
     .stat-num span.accent{color:var(--burgundy)}
@@ -103,8 +103,8 @@
     /* WHY SECTION */
     .why-section{background:var(--stone);padding:7rem 0;border-bottom:1px solid var(--stone-dark)}
     .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem}
-    .why-card{background:var(--white);border:1.5px solid var(--stone-dark);border-radius:24px;padding:2.2rem;box-shadow:0 6px 20px rgba(160,26,42,.04);transition:background .3s,border-color .3s,transform .4s var(--ease),box-shadow .4s}
-    .why-card:hover{border-color:var(--sage-light);box-shadow:0 12px 32px rgba(160,26,42,.08);transform:translateY(-4px)}
+    .why-card{background:var(--white);border:1.5px solid var(--stone-dark);border-radius:24px;padding:2.2rem;box-shadow:0 6px 20px rgba(128,19,32,.04);transition:background .3s,border-color .3s,transform .4s var(--ease),box-shadow .4s}
+    .why-card:hover{border-color:var(--sage-light);box-shadow:0 12px 32px rgba(128,19,32,.08);transform:translateY(-4px)}
     .why-icon{color:var(--sage);margin-bottom:1.2rem;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:14px;background:var(--sage-pale)}
     .why-title{font-family:var(--serif);font-size:1.3rem;font-weight:500;color:var(--bark);margin-bottom:.6rem}
     .why-desc{font-size:.88rem;color:var(--text-mid);line-height:1.7}
@@ -112,11 +112,11 @@
     /* MARKETS */
     .market-section{background:var(--cream);padding:7rem 0;border-bottom:1px solid var(--stone-dark)}
     .market-flags{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}
-    .market-item{display:flex;align-items:center;gap:1.2rem;background:var(--white);border-radius:18px;padding:1.2rem 1.6rem;border:1.5px solid var(--stone-dark);box-shadow:0 4px 16px rgba(160,26,42,.03)}
-    .market-flag{width:44px;height:44px;border-radius:12px;background:rgba(160,26,42,.08);color:var(--burgundy);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.15rem;font-weight:600;flex-shrink:0}
+    .market-item{display:flex;align-items:center;gap:1.2rem;background:var(--white);border-radius:18px;padding:1.2rem 1.6rem;border:1.5px solid var(--stone-dark);box-shadow:0 4px 16px rgba(128,19,32,.03)}
+    .market-flag{width:44px;height:44px;border-radius:12px;background:rgba(128,19,32,.08);color:var(--burgundy);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.15rem;font-weight:600;flex-shrink:0}
     .market-name{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--bark)}
     .market-tag{font-size:.78rem;color:var(--text-soft);margin-top:.15rem}
-    .quote-box{background:var(--white);border:1.5px solid var(--stone-dark);border-radius:28px;padding:3rem;box-shadow:0 12px 36px rgba(160,26,42,.06);position:relative}
+    .quote-box{background:var(--white);border:1.5px solid var(--stone-dark);border-radius:28px;padding:3rem;box-shadow:0 12px 36px rgba(128,19,32,.06);position:relative}
     .quote-badge{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--burgundy);margin-bottom:1.2rem}
     .quote-body{font-family:var(--serif);font-size:1.45rem;font-weight:300;line-height:1.45;font-style:italic;color:var(--bark);margin-bottom:1.5rem}
     .quote-author{font-family:var(--sans);color:var(--text-mid);font-size:.92rem;font-weight:500}
@@ -128,9 +128,9 @@
     .fg label{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.4rem;font-weight:500}
     .fg input,.fg textarea,.fg select{width:100%;padding:.85rem 1.1rem;border:1.5px solid var(--stone-dark);border-radius:14px;background:var(--white);font-family:var(--sans);font-size:.92rem;color:var(--text);outline:none;transition:border-color .3s,box-shadow .3s}
     .fg textarea{resize:vertical;min-height:120px}
-    .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--burgundy);box-shadow:0 0 0 3px rgba(160,26,42,.12)}
-    .bsb{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 2.4rem;border-radius:50px;background:var(--burgundy);color:var(--white);font-size:.92rem;font-weight:500;border:none;cursor:pointer;transition:background .3s,transform .3s var(--ease),box-shadow .3s;box-shadow:0 4px 18px rgba(160,26,42,.35)}
-    .bsb:hover{background:var(--bark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(160,26,42,.25)}
+    .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--burgundy);box-shadow:0 0 0 3px rgba(128,19,32,.12)}
+    .bsb{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 2.4rem;border-radius:50px;background:var(--burgundy);color:var(--white);font-size:.92rem;font-weight:500;border:none;cursor:pointer;transition:background .3s,transform .3s var(--ease),box-shadow .3s;box-shadow:0 4px 18px rgba(128,19,32,.35)}
+    .bsb:hover{background:var(--bark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(128,19,32,.25)}
 
     footer{background:var(--bark);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
     .fb{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--stone);letter-spacing:.06em}
@@ -258,9 +258,9 @@
         </div>
 
         <div class="process-step">
-          <div class="step-dot" style="background:var(--burgundy);box-shadow:0 4px 14px rgba(160,26,42,.35)">6</div>
+          <div class="step-dot" style="background:var(--burgundy);box-shadow:0 4px 14px rgba(128,19,32,.35)">6</div>
           <div class="step-content">
-            <div class="step-where" style="background:rgba(160,26,42,.1);color:var(--burgundy)">CEOP &middot; Srbija &middot; Mi vodimo</div>
+            <div class="step-where" style="background:rgba(128,19,32,.1);color:var(--burgundy)">CEOP &middot; Srbija &middot; Mi vodimo</div>
             <h3 class="step-title">UPOTREBNA DOZVOLA</h3>
             <p class="step-desc">Projekat izvedenog stanja, koordinacija tehničkog pregleda i ishodovanje pravosnažne upotrebne dozvole. Vaš objekat je 100% legalan i spreman za mirno useljenje.</p>
           </div>
